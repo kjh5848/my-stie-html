@@ -11,6 +11,8 @@
 .banner h1 {
     position: relative; /* 제목을 부모 요소로부터 상대적으로 배치 */
     z-index: 2; /* 제목을 오버레이 위에 배치 */
+    align-items: center;
+    justify-content: center;
 }
 /* 배너 오버레이 스타일 */
 .banner::after {

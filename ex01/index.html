@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts 추가 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -13,71 +14,158 @@
             height: 200px;
             background: #aaa;
         }
+
+    
     </style>
 </head>
 
 <body>
-
-    <div class="banner" style="background-image: url('/images/baner.jpg');">
-        <h1>My Site!!</h1>
-    </div>
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/images/my_site.gif" alt="Avatar Logo" style="width:80px;" class="rounded-pill">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                </ul>
-              </div>
-            
+    <div class="grid-wrapper">
+        <div class="banner" style="background-image: url('/images/baner.jpg');">
+            <h1>My Site!!</h1>
         </div>
-        
-    </nav>
     
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/my_site.gif" alt="Avatar Logo" style="width:80px;" class="rounded-pill">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a> <!-- 로그인 모달 트리거 -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</a> <!-- 회원가입 모달 트리거 -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ex01/write-form.html" >글쓰기</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <div class="card mx-5 my-5 ">
-        <div class="card-body">
-            <h4 class="card-title">제목</h4>
-            <p class="card-text">내용</p>
-            <a href="#" class="card-link">일자</a>
-            <a href="#" class="card-link">글쓴이</a>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">로그인</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">이메일 주소</label>
+                                <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">비밀번호</label>
+                                <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary ">로그인</button>
+                            </div>
+                        </form>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                    <p>계정이 없으신가요? <a href="#" id="showSignupModal">회원가입</a></p> <!-- 회원가입으로 전환 링크 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 회원가입 모달 -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">회원가입</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="signupUsername" class="form-label">아이디</label>
+                            <input type="text" class="form-control" id="signupUsername" placeholder="아이디를 입력하세요">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">이메일 주소</label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="이메일을 입력하세요">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">비밀번호</label>
+                            <input type="password" class="form-control" id="signupPassword" placeholder="비밀번호를 입력하세요">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary ">회원가입</button>
+
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <p>이미 계정이 있으신가요? <a href="#" id="showLoginModal">로그인</a></p> <!-- 로그인으로 전환 링크 -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="card mx-5 my-5">
-        <div class="card-body">
-            <h4 class="card-title">제목</h4>
-            <p class="card-text">내용</p>
-            <a href="#" class="card-link">일자</a>
-            <a href="#" class="card-link">글쓴이</a>
+        
+        <div class="container my-1">
+            <div class="card mx-5 my-5">
+                <div class="card-body d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title text-primary">제목</h4>
+                        <p class="card-text">오늘 하루도 퐈이팅~!!</p>
+                    </div>
+                    <div>
+                        <div class="card-links text-right">
+                            <span class="mt-4" style="font-size: 10px;">2024-06-07</span>
+                            <span class="d-flex justify-content-end" style="font-size: 15px; font-weight: bold;">kjh</span>
+                        </div>
+                    </div>   
+                </div>
+            </div>
         </div>
+    
+        <footer class="mt-5 p-4 bg-dark text-white text-center">
+            <p>my-site : 김주혁</p>
+        </footer>
     </div>
 
-    <div class="card mx-5 my-5">
-        <div class="card-body">
-            <h4 class="card-title">제목</h4>
-            <p class="card-text">내용</p>
-            <a href="#" class="card-link">일자</a>
-            <a href="#" class="card-link">글쓴이</a>
-        </div>
-    </div>
 
-    <div class="mt-5 p-4 bg-dark text-white text-center">
-        <p>Footer</p>
-    </div>
 
-</body>
-
+    <script>
+        // 로그인 모달에서 회원가입 모달로 전환
+        document.getElementById('showSignupModal').addEventListener('click', function(event) {
+            event.preventDefault();
+            var loginModalElement = document.getElementById('loginModal');
+            var signupModal = new bootstrap.Modal(document.getElementById('signupModal'));
+    
+            loginModalElement.addEventListener('hidden.bs.modal', function () {
+                signupModal.show();
+            }, { once: true });
+    
+            var loginModal = bootstrap.Modal.getInstance(loginModalElement);
+            loginModal.hide();
+        });
+    
+        // 회원가입 모달에서 로그인 모달로 전환
+        document.getElementById('showLoginModal').addEventListener('click', function(event) {
+            event.preventDefault();
+            var signupModalElement = document.getElementById('signupModal');
+            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    
+            signupModalElement.addEventListener('hidden.bs.modal', function () {
+                loginModal.show();
+            }, { once: true });
+    
+            var signupModal = bootstrap.Modal.getInstance(signupModalElement);
+            signupModal.hide();
+        });
+    </script>
+    
+    </body>
 </html>

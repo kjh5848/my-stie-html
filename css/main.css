@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .navbar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(180, 91, 91, 0.1);
   padding: 10px 20px;
 }
 
@@ -9,6 +9,7 @@
   font-weight: 500;
   padding: 10px 15px;
   transition: color 0.3s ease;
+  font-size: 25px;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
@@ -72,6 +73,8 @@
 .banner h1 {
   position: relative; /* 제목을 부모 요소로부터 상대적으로 배치 */
   z-index: 2; /* 제목을 오버레이 위에 배치 */
+  align-items: center;
+  justify-content: center;
 }
 
 /* 배너 오버레이 스타일 */
@@ -83,4 +86,49 @@
   width: 100%; /* 오버레이 폭을 100%로 설정 */
   height: 100%; /* 오버레이 높이를 100%로 설정 */
   z-index: 1; /* 오버레이를 제목 뒤에 배치 */
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1, h4, p, .navbar-brand, .nav-link, .card-title, .card-text, .card-links span {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.font-sample-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-sample-open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.font-sample-lobster {
+  font-family: "Lobster", cursive;
+}
+
+.font-sample-pacifico {
+  font-family: "Pacifico", cursive;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  height: 100vh;
+}
+
+.footer {
+  height: 100px; /* 고정된 높이 */
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=main.css.map */
