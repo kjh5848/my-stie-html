@@ -119,16 +119,14 @@ html, body {
 
 .grid-wrapper {
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 200px auto auto; /* 고정 높이: 네브바(70px), 배너(150px) */
   height: 100vh;
 }
 
+.main-content {
+  padding: 20px;
+}
+
 .footer {
-  height: 100px; /* 고정된 높이 */
-  background-color: #343a40;
-  color: white;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100px; /* 고정 높이 */
 }/*# sourceMappingURL=main.css.map */

@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts 추가 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -20,83 +21,125 @@
 <body>
     <div class="grid-wrapper">
 
-        
+
 
         <div class="banner" style="background-image: url('/images/baner.jpg');">
             <h1>My Site!!</h1>
         </div>
-        
+
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="/images/my_site.gif" alt="Avatar Logo" style="width:80px;" class="rounded-pill">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a> <!-- 로그인 모달 트리거 -->
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</a>
+                            <!-- 로그인 모달 트리거 -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</a> <!-- 회원가입 모달 트리거 -->
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">회원가입</a>
+                            <!-- 회원가입 모달 트리거 -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ex01/write-form.html" >글쓰기</a>
+                            <a class="nav-link" href="/ex01/write-form.html">글쓰기</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ex01/profile.html">프로필</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-       <div class="container mt-5">
-        <h2 class="mb-4">글쓰기</h2>
-        <form>
-
-            <!-- 제목 -->
-            <div class="mb-3">
-                <label for="title" class="form-label">제목</label>
-                <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
+        <div class="container mt-5">
+            <h2 class="mb-4">글쓰기</h2>
+            <div class="card p-4">
+                <form>
+                    <!-- 제목 -->
+                    <div class="mb-4">
+                        <label for="title" class="form-label">제목</label>
+                        <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
+                    </div>
+        
+                    <!-- 카테고리 -->
+                    <div class="mb-4">
+                        <label for="category" class="form-label">카테고리</label>
+                        <select class="form-select" id="category">
+                            <option selected>카테고리를 선택하세요</option>
+                            <option value="1">기술</option>
+                            <option value="2">여행</option>
+                            <option value="3">음식</option>
+                            <option value="4">기타</option>
+                        </select>
+                    </div>
+        
+                    <!-- 사진 -->
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p class="form-label mb-0">사진</p>
+                            <button class="btn btn-sm btn-outline-primary" type="button" id="uploadButton">사진 추가</button>
+                        </div>
+                        <div class="mt-3" id="photoContainer">
+                            <!-- 사진이 여기에 추가됩니다 -->
+                            <div class="text-center text-muted">사진이 없습니다.</div>
+                        </div>
+                    </div>
+        
+                    <!-- 사진 업로드 모달 -->
+                    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="uploadModalLabel">사진 업로드</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="uploadForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" id="photoUpload" name="photo" accept="image/*" required>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary">업로드</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- 내용 -->
+                    <div class="mb-4">
+                        <label for="content" class="form-label">내용</label>
+                        <textarea class="form-control" id="content" rows="6" placeholder="내용을 입력하세요"></textarea>
+                    </div>
+        
+                    <!-- 파일 업로드 -->
+                    <div class="mb-4">
+                        <label for="fileUpload" class="form-label">파일 업로드</label>
+                        <input class="form-control" type="file" id="fileUpload">
+                    </div>
+        
+                    <!-- 버튼 -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">저장</button>
+                        <button type="reset" class="btn btn-secondary ms-2">취소</button>
+                    </div>
+                </form>
             </div>
-
-            <!-- 카테고리 -->
-            <div class="mb-3">
-                <label for="category" class="form-label">카테고리</label>
-                <select class="form-select" id="category">
-                    <option selected>카테고리를 선택하세요</option>
-                    <option value="1">기술</option>
-                    <option value="2">여행</option>
-                    <option value="3">음식</option>
-                    <option value="4">기타</option>
-                </select>
-            </div>
-
-            <!-- 내용 -->
-            <div class="mb-3">
-                <label for="content" class="form-label">내용</label>
-                <textarea class="form-control" id="content" rows="6" placeholder="내용을 입력하세요"></textarea>
-            </div>
-
-            <!-- 파일 업로드 -->
-            <div class="mb-3">
-                <label for="fileUpload" class="form-label">파일 업로드</label>
-                <input class="form-control" type="file" id="fileUpload">
-            </div>
-
-            <!-- 버튼 -->
-            <div class="btn-container d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">저장</button>
-                <button type="reset" class="btn btn-secondary ms-2">취소</button>
-            </div>
-        </form>
-       </div>
+        </div>
 
 
-       <footer class="mt-5 p-4 bg-dark text-white text-center">
-        <p>my-site : 김주혁</p>
-    </footer>
-    
+        <footer class="mt-5 p-4 bg-dark text-white text-center">
+            asdasd
+            <p>my-site : 김주혁</p>
+        </footer>
+
     </div>
-    
+
 </body>
 
 </html>
